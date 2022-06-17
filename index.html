@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Budowanie frontendów dla aplikacji Ethereum</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 class="r-fit-text">
+            Budowanie frontendów <br />dla aplikacji Ethereum
+          </h1>
+          <p class="fragment">Co wiedzieć, zanim zaczniesz web3</p>
+          <p class="fragment">w 6 księgach zapisane</p>
+        </section>
+
+        <section>
+					<h3>Księgi</h3>
+          <ul class="fragment">
+            <li>Blockchain dla nerdów</li>
+            <li>Dapps</li>
+            <li>Testy</li>
+            <li>Wyzwania</li>
+            <li>Tokeny ERC-20</li>
+            <li>Przegląd projektów</li>
+          </ul>
+        </section>
+
+        <section>
+          <ul>
+            <li>blockchain</li>
+            <li class="fragment">crypto</li>
+            <li class="fragment">web3</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Pytania</h3>
+          <ul>
+            <li class="fragment">Czy wiesz, co to web3?</li>
+            <li class="fragment">Czy uczysz się czegoś o web3?</li>
+            <li class="fragment">Czy robisz już coś w web3?</li>
+            <li class="fragment">
+              Czy uważasz, że warto inwestować czas na naukę?
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <p class="r-fit-text">10 miesięcy</p>
+          <p class="r-fit-text fragment">Od rozpoczęcia pracy z blockchain</p>
+        </section>
+
+        <section>
+          <p class="r-fit-text">web2 vs web3</p>
+          <p class="r-fit-text fragment">o różnicach, o tradeoffach</p>
+        </section>
+
+        <section>
+          <h3>Kim jestem, co robię…</h3>
+          <ul>
+            <li class="fragment">Mam na imię Kuba</li>
+            <li class="fragment">Prowadzę kanał <a href="https://www.youtube.com/c/jsdzem" target="_blank">JS Dżem</a></li>
+            <li class="fragment">+5 lat doświadczenia na frontendzie</li>
+            <li class="fragment">TypeScript</li>
+            <li class="fragment">React + Redux</li>
+          </ul>
+        </section>
+
+        <section>
+          <img data-src="/assets/js-dzem-yt.png" alt="JS Dżem on YouTube" />
+        </section>
+
+        <!-- PART ONE -->
+
+        <section>
+          <h2>Księga pierwsza</h2>
+          <p>Blockchain dla nerdów</p>
+        </section>
+
+        <section>
+          <h3>Po co Ci blockchain?</h3>
+          <ul>
+            <li class="fragment">
+              Zaufana trzecia strona jest niezbędna, aby zapobiec podwójnemu
+              wydaniu tych samych środków
+            </li>
+            <li class="fragment">
+              Dowód kryptograficzny zamiast centralnego zaufania
+            </li>
+            <li class="fragment">Zaufanie do sieci, a nie do instytucji</li>
+          </ul>
+        </section>
+
+        <section>
+          <figure>
+            <blockquote>
+              <p>
+                “Z punktu widzenia tworzenia oprogramowania jedną z największych
+                zmian wydaje się zakwestionowanie tradycyjnej, centralnej bazy
+                danych. Musimy więc dogłębnie przemyśleć w jaki sposób
+                blockchain zmusza nas do przemyślenia istniejących konstrukcji
+                baz danych.”
+              </p>
+            </blockquote>
+            <figcaption>
+              —William Mougayar, Vitalik Buterin,<br />
+              <cite>The Business Blockchain</cite>
+            </figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <img data-src="/assets/kielbus-wyjasnia-krypto.png" alt="Rafał Kiełbus wyjaśnia krypto" />
+        </section>
+
+        <section>
+          <h3>Dlaczego dotychczas nie płaciłeś PRZEZ INTERNET?</h3>
+          <p class="fragment">Co to w ogóle znaczy "płacić przez internet"?</p>
+        </section>
+
+        <section>
+          <h3>Wire transfer? 😂</h3>
+          <img style="max-height: 50vh;" data-src="/assets/wire.jpg" alt="Wire" />
+        </section>
+
+        <section>
+          <img data-src="/assets/p2p-vs-banks.png" alt="p2p vs banks" />
+        </section>
+
+        <section>
+          <div style="display: flex; justify-content: center;">
+            <blockquote class="twitter-tweet"><p lang="pl" dir="ltr">Ktoś przelał 329 mln dolców w <a href="https://twitter.com/hashtag/Bitcoin?src=hash&amp;ref_src=twsrc%5Etfw">#Bitcoin</a> i zapłacił opłatę w wysokości 0,12 dolara.<br><br>To jest opłata za transakcję w wysokości 0,0000000003644%.<br><br>Bez blokad, bez pośredników, bez banków. <a href="https://twitter.com/hashtag/kryptowaluty?src=hash&amp;ref_src=twsrc%5Etfw">#kryptowaluty</a> <a href="https://twitter.com/hashtag/kryptoekipa?src=hash&amp;ref_src=twsrc%5Etfw">#kryptoekipa</a> <a href="https://twitter.com/hashtag/finanse?src=hash&amp;ref_src=twsrc%5Etfw">#finanse</a> <a href="https://t.co/b76E2gBOjN">pic.twitter.com/b76E2gBOjN</a></p>&mdash; K.O Kryptowaluty (@KO_Kryptowaluty) <a href="https://twitter.com/KO_Kryptowaluty/status/1531139338943143937?ref_src=twsrc%5Etfw">May 30, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </section>
+
+        <section>
+          <h3>publiczny i (ale) anonimowy</h3>
+          <ul>
+            <li class="fragment">
+              Transakcje są publiczne (id)
+            </li>
+            <li class="fragment">
+              Jesteś anonimowy, dopóki nie znają twojego adresu 🧵
+            </li>
+            <li class="fragment">
+              Transparentność
+              <ul>
+                <li class="fragment">
+                  Pewność że moje pieniądze nigdzie nie znikną
+                </li>
+                <li class="fragment">
+                  Łatwość wyśledzenia przestępców
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+				<section>
+					<h3 class="r-fit-text">Open source</h3>
+				</section>
+
+        <!-- PART TWO -->
+
+        <section>
+          <h2>Księga druga</h2>
+          <p>Dapps</p>
+        </section>
+
+        <section>
+          <h3>Disclaimer</h3>
+          <ul>
+            <li class="fragment">only MetaMask wallet 🦊</li>
+            <li class="fragment">⚛️ React + optional Redux</li>
+            <li class="fragment"><a href="https://docs.ethers.io/v5/" target="_blank">ethers.js</a></li>
+            <li class="fragment">no high level solutions (<a href="https://usedapp.io/" target="_blank">useDapp</a>, <a href="https://trufflesuite.com/drizzle/" target="_blank">Drizzle</a>)</li>
+            <li class="fragment">🙅‍♂️ no Solidity, no smart contracts</li>
+            <li class="fragment">only ERC-20, no NFTs</li>
+          </ul>
+        </section>
+
+        <section>
+          <div style="display: flex; justify-content: center;">
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Remember that you should always test your dapp with at least one non-metamask wallet (eg. Brave, Status browser). Make sure your dapp conforms to ethereum standards, and not just to accidental properties of one particular wallet!</p>&mdash; vitalik.eth (@VitalikButerin) <a href="https://twitter.com/VitalikButerin/status/1531771109602799617?ref_src=twsrc%5Etfw">May 31, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </section>
+
+				<section>
+					<h3>Dlaczego Ethereum?</h3>
+					<img style="max-height: 50vh;" data-src="/assets/blckch-devs-chart.webp" alt="Infura" />
+					<a href="https://a16zcrypto.com/state-of-crypto-report-a16z-2022/" target="_blank">https://a16zcrypto.com/state-of-crypto-report-a16z-2022/</a>
+				</section>
+
+        <section>
+          <h3>
+						Decentralized front-end
+          </h3>
+          <ul>
+            <li class="fragment">
+              no backend (❌CRUD, ❌REST, ❌HTTP)
+            </li>
+            <li class="fragment">no HTTP requests (❌fetch, ❌axios)</li>
+						<li class="fragment">
+              Talks directly to blockchain ✅
+            </li>
+            <li class="fragment">
+              blockchain node (read) ✅
+            </li>
+            <li class="fragment">
+              wallet (read, write) ✅
+            </li>
+						<li class="fragment">no matter where deployed ✅</li>
+						<li class="fragment">IPFS ✅</li>
+          </ul>
+        </section>
+
+        <section>
+					<p>Wszystko jest to samo</p>
+					<p style="font-size: 5em;">😎</p>
+					<p class="fragment">tylko łączysz się z węzłem sieci Ethereum<br /> zamiast serwerem HTTP.</p>
+        </section>
+
+        <section>
+          <div style="display: flex; justify-content: center;">
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">BREAKING: Web2 and Web3 are the same damn thing.</p>&mdash; JackForge.eth (@TheJackForge) <a href="https://twitter.com/TheJackForge/status/1524603955489255424?ref_src=twsrc%5Etfw">May 12, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </section>
+
+				<section>
+					<p>Nie wyklucza to, że pewne dane<br/> mogą być pobierane<br/> z centralizowanych serwerów</p>
+					<p style="font-size: 2em;">🗯</p>
+					<ul>
+						<li class="fragment">optymalizacji kosztów</li>
+						<li class="fragment">dane wtórne</li>
+						<li class="fragment">mało istotne dane</li>
+						<li class="fragment">niewraliwe</li>
+					</ul>
+				</section>
+
+				<section>
+					<div style="display: flex; justify-content: center;">
+						<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Re: non-financial blockchain use cases. <a href="https://t.co/lYZFprXAry">pic.twitter.com/lYZFprXAry</a></p>&mdash; vitalik.eth (@VitalikButerin) <a href="https://twitter.com/VitalikButerin/status/1530268923848839173?ref_src=twsrc%5Etfw">May 27, 2022</a></blockquote>
+						<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+					</div>
+				</section>
+
+				<!-- TODO -->
+        <section>
+          <h3>How to get connected to the blockchain?</h3>
+          <ol>
+            <li class="fragment">
+              Get smartcontract address and its ABI (Application Binary
+              Interface)
+            </li>
+            <li class="fragment">Initialize a provider (wallet, node)</li>
+            <li class="fragment">
+              Create a smartcontract class instance - SM abstraction in JS
+            </li>
+            <li class="fragment">
+              Call a contract method to get or set data in a blockchain
+            </li>
+            <li class="fragment">
+              You can also Listen to the events on smartcontract (pooling, web
+              sockets)
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>Smartcontract address & ABI</h3>
+          <p class="fragment">Czy ABI to takie inne API?</p>
+        </section>
+
+        <section>
+          <p>❌ Nie pobieram ABI z zewnętrznych źródeł</p>
+          <p class="fragment">✅ Zawsze hardkoduję adresy smartkontraktów</p>
+          <p class="fragment" style="font-size: 3em;">dlaczego ❓</p>
+        </section>
+
+        <section>
+          <h3>Connecting to a node</h3>
+          <ul>
+            <li class="fragment">Why do I need a node?</li>
+            <li class="fragment">When to use my own node (Infura, Alchemy)?</li>
+            <li class="fragment">
+              Can any front-end connect to any smart contract?
+            </li>
+          </ul>
+        </section>
+
+        <section>
+					<h3>Node providers</h3>
+					<div style="display: flex;">
+						<div>
+							<a href="https://infura.io/" target="_blank">Infura</a>
+							<img data-src="/assets/infura.png" alt="Infura" />
+						</div>
+						<div>
+							<a href="https://www.alchemy.com/" target="_blank">Alchemy</a>
+							<img data-src="/assets/alchemy.png" alt="Alchemy" />
+						</div>
+					</div>
+				</section>
+
+				<section>
+          <h3>Platforms</h3>
+					<div style="display: flex; justify-content: center;">
+					<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Last week we had a great workshop on how <a href="https://twitter.com/MoralisWeb3?ref_src=twsrc%5Etfw">@MoralisWeb3</a> saves developers<br>time and money to ship scalable &amp; robust Dapps - with <a href="https://twitter.com/Shiv_24561?ref_src=twsrc%5Etfw">@Shiv_24561</a> &amp; <a href="https://twitter.com/YSoenggoro?ref_src=twsrc%5Etfw">@YSoenggoro</a> <a href="https://t.co/D5p4Eei5pN">pic.twitter.com/D5p4Eei5pN</a></p>&mdash; lecryptofellowship (@lecryptofellow) <a href="https://twitter.com/lecryptofellow/status/1530219416536883201?ref_src=twsrc%5Etfw">May 27, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+					</div>
+				</section>
+
+				<section>
+					<h3>Using smart contract methods</h3>
+					<ul>
+						<li class="fragment">type of methods: read and write</li>
+						<li class="fragment">no put/patch and delete substitutes (blockchain design)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3 class="r-fit-text">READ methods</h3>
+					<ul>
+						<li class="fragment">free 🆓 you don't pay ETH for gas</li>
+						<li class="fragment">no wallet required, shared node is enough</li>
+						<li class="fragment">() ⇒ Promise&lt;Result&gt;</li>
+						<li class="fragment">no event emitted</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3 class="r-fit-text">WRITE methods</h3>
+					<ul>
+						<li class="fragment">cost you to pay for gas</li>
+						<li class="fragment">connected wallet required</li>
+						<li class="fragment">() ⇒ Promise&lt;{ wait: () ⇒ Promise&lt;Receipt&gt; }&gt;</li>
+						<li class="fragment">can emit events</li>
+						<li class="fragment">one SC can contain read and write methods</li>
+					</ul>
+				</section>
+
+				<section>
+					<p>You have to pay for gas, <br/> even if transaction failed</p>
+					<img style="max-height: 30vh;" data-src="/assets/pay-the-bill.png" alt="pay the bill" />
+					<p class="fragment">👮‍♂️ DDos protection</p>
+				</section>
+
+				<section>
+					<h3>Jeśli to możliwe,<br /> łącz się przez wallet</h3>
+					<div class="r-stack">
+						<img class="fragment" data-src="/assets/read-write-1.png" alt="Read and write 1" />
+						<img class="fragment" data-src="/assets/read-write-2.png" alt="Read and write 2" />
+					</div>
+					<a class="fragment" href="https://www.youtube.com/watch?v=kDan1tp4hpA" target="_blank">https://www.youtube.com/watch?v=kDan1tp4hpA</a>
+				</section>
+
+				<!-- PART THREE -->
+
+        <section>
+          <h2>Księga trzecia</h2>
+          <p>Testy</p>
+        </section>
+
+				<section>
+					<h3>Unit test</h3>
+					<ul>
+						<li class="fragment">smart contracts covered on Solidity level</li>
+						<li class="fragment">there's no difference if you use web3</li>
+						<li class="fragment">unit test should be blockchain unaware, detached</li>
+						<li class="fragment">if you use React, just test components or functions</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>E2E tests</h3>
+					<ul>
+						<li class="fragment">Cypress + MetaMask = Synpress<br />
+							<a>https://github.com/Synthetixio/synpress</a></li>
+						<li class="fragment">manual testing</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Dev tools</h3>
+					<p>MetaMask requests<br /> doesn't affect network tab<br /> in browser dev tools</p>
+					<ul>
+						<li class="fragment">no throttling</li>
+						<li class="fragment">browser doesn't treat SC call like HTTP request</li>
+						<li class="fragment">MetaMask is a black box</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Wallet is a blackbox</h3>
+					<ul>
+						<li class="fragment">MetaMask does not allow to disconnect app 🤥</li>
+						<li class="fragment">Access only via methods specified in <a href="https://docs.metamask.io/guide/ethereum-provider.html#methods" target="_blank">MetaMask API</a></li>
+            <li class="fragment"><a href="https://docs.metamask.io/guide/rpc-api.html#wallet-watchasset" target="_blank">wallet_watchAsset</a> case</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Integration tests</h3>
+					<ul>
+						<li class="fragment"><a href="https://testing-library.com/">@testing-library</a></li>
+						<li class="fragment">implementation agnostic</li>
+						<li class="fragment">how front-end deals with errors</li>
+						<li class="fragment">only services are mocked</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Services</h3>
+					<div class="r-stack">
+						<img class="fragment" data-src="/assets/services-1.png" alt="Services" />
+						<img class="fragment" data-src="/assets/services-2.png" alt="Services" />
+						<img class="fragment" data-src="/assets/services-3.png" alt="Services" />
+					</div>
+				</section>
+
+				<section>
+					<h2>Environments</h2>
+					<img class="fragment" data-src="/assets/environments.png" alt="Environments" />
+				</section>
+
+				<!-- PART FOUR -->
+
+        <section>
+          <h2>Księga czwarta</h2>
+          <p>Wyzwania</p>
+        </section>
+
+				<section>
+					<h3>Arytmetyka na frontendzie</h3>
+					<ul>
+						<li class="fragment">biblioteka <a href="https://github.com/alexbardas/bignumber.js" target="_blank">BigNumber</a></li>
+						<li class="fragment">nawet do 27 miejsc po przecinku</li>
+						<li class="fragment">ewentualnie liczby w stringach</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Primitive obsession</h3>
+				</section>
+
+        <section>
+          <pre><code>
+export type LiquidationDepositAmount = string & {
+  type: 'LIQUIDATION_DEPOSIT_AMOUNT';
+};
+export type OpeningFeeRate = string & {
+  type: 'OPENING_FEE_RATE';
+};
+export type OpeningFeeAmount = BigNumber & {
+  type: 'OPENING_FEE_AMOUNT';
+};
+          </code></pre>
+        </section>
+
+				<section>
+					<h3>Data received from blockchain to JS</h3>
+					<ul>
+						<li class="fragment">fake Array - actually it has fields like object</li>
+						<li class="fragment">depends on provided ABI format</li>
+						<li class="fragment">TypeScript typings rather expect Array. If you want to read it as object, you need to assert your own type.</li>
+						<li class="fragment">example: getMySwaps</li>
+					</ul>
+				</section>
+
+        <section>
+          <h3>Non-serializable data</h3>
+          <img class="fragment" data-src="/assets/redux-non-serializable.png" alt="Non-serializable data" />
+        </section>
+
+				<section>
+					<h3>Non-serializable data</h3>
+					<ul>
+						<li class="fragment">BigNumber is non-serializable - redux, localStorage 😞</li>
+						<li class="fragment">ethers.js returns BigNumber instance for uint256 and other number format</li>
+						<li class="fragment">UI wants text representation</li>
+						<li class="fragment">number string?</li>
+						<li class="fragment">What if I have many calcs and conversion?</li>
+						<li class="fragment">Referential equality matters, no value equality - React 🙈</li>
+					</ul>
+				</section>
+
+        <section>
+          <h3>Redux architecture case</h3>
+          <p class="fragment" style="max-width: 60vw; margin: 0 auto;">
+            <span class="fragment">service</span>
+            <span class="fragment">➡️ BN</span>
+            <span class="fragment">➡️ string</span>
+            <span class="fragment">➡️ reducer</span>
+            <span class="fragment">➡️ store</span>
+            <span class="fragment">➡️ selector (BN for calcs)</span>
+            <span class="fragment">➡️ component</span>
+            <span class="fragment">➡️ (BN)</span>
+          </p>
+        </section>
+
+				<section>
+					<h3>Inaczej są wyrzucane błędy przez metamask a inaczej przez Infurę</h3>
+					<pre><code>
+const getErrorCode = (error: unknown): UserErrorCode => {
+  if (!(error instanceof Error)) {
+    /**
+      * If contract method is called via Metamask wallet
+      * then error is non-Error type
+      * and has different structure than thrown via public RCP provider
+      */
+    if (isErrorFromWallet(error)) {
+      const code = getErrorFromWalletCode(error);
+
+      if (code) {
+        return code;
+      }
+    }
+
+    /**
+      * Non contract related errors
+      * Metamask's errors are non-Error type
+      */
+    if (isMetamaskError(error)) {
+      const code = getMetamaskErrorCode(error);
+
+      if (code) {
+        return code;
+      }
+    }
+
+    return 'UNEXPECTED_ERROR';
+  }
+
+  /**
+    * If contract method is called via Public RCP provider
+    * then error is Error type
+    * and has different structure than thrown via Metamask wallet
+    */
+  if (isErrorFromPublicRcp(error)) {
+    const code = getErrorFromPublicRcpCode(error);
+
+    if (code) {
+      return code;
+    }
+  }
+
+  if (error instanceof TypeError) {
+    return 'UNEXPECTED_ERROR';
+  }
+
+  return 'UNEXPECTED_ERROR';
+};
+          </code></pre>
+				</section>
+
+				<section>
+					<h3>Error logging</h3>
+					<ul>
+						<li class="fragment">No server logs</li>
+						<li class="fragment">No idea what's on client side</li>
+					</ul>
+				</section>
+
+        <section>
+          <p>It's a good practice to log errors anyway,<br />regardless it's either web3 or web2</p>
+          <ul>
+            <li><a href="https://sentry.io/welcome/">sentry.io</a></li>
+            <li><a href="https://logrocket.com/">Log Rocket</a></li>
+          </ul>
+        </section>
+
+				<section>
+					<h3>TypeScript vs Smart Contract (ABI)</h3>
+					<ul>
+						<li class="fragment"><a href="https://github.com/dethcrypto/TypeChain" target="_blank">Typechain</a></li>
+						<li class="fragment">Custom class interface - code editor: UserAsset.ts</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Czytanie danych z logów i eventów</h3>
+				</section>
+
+				<!-- PART FIVE -->
+
+        <section>
+          <h2>Księga piąta</h2>
+          <p>Tokeny ERC-20</p>
+        </section>
+
+				<section>
+					<h3>Smart Contracs interactions</h3>
+					<p class="r-fit-text">ERC20 standard</p>
+					<p>
+						<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol">https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol</a>
+					</p>
+				</section>
+
+				<section>
+					<h3>UX vs security</h3>
+					<p class="r-fit-text">unlimited allowance</p>
+					<p>
+						<a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol">https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol</a>
+					</p>
+				</section>
+
+				<!-- PART SIX -->
+
+        <section>
+          <h2>Księga szósta</h2>
+          <p>Przegląd projektów</p>
+					<ul>
+						<li class="fragment"><a href="https://uniswap.org/">Uniswap</a></li>
+						<li class="fragment"><a href="https://aave.com/">Aave</a></li>
+						<li class="fragment"><a href="https://pancakeswap.finance/">Pancake Swap</a></li>
+					</ul>
+        </section>
+
+        <section>
+          <h3>Web3 Devs PL</h3>
+          <a href="https://web3devs.pl/">https://web3devs.pl/</a>
+        </section>
+
+        <section>
+          <div style="display: flex; justify-content: center;">
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Learn Web3 -&gt; get paid.<br><br>10 best resources to kickstart your Web3 development journey in 2022.<br><br>A Thread ↓</p>&mdash; Vitto Rivabella | 0xvitto.eth (@VittoStack) <a href="https://twitter.com/VittoStack/status/1524044099006967814?ref_src=twsrc%5Etfw">May 10, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
