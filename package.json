@@ -1,34 +1,18 @@
 {
-  "name": "reveal.js",
-  "version": "4.3.1",
-  "description": "The HTML Presentation Framework",
-  "homepage": "https://revealjs.com",
-  "subdomain": "revealjs",
+  "name": "meetjs-bialystok-43",
+  "version": "1.0.0",
+  "description": "Budowanie frontendów dla aplikacji Ethereum",
+  "homepage": "https://meetjs-bialystok-43.netlify.app/",
   "main": "dist/reveal.js",
   "module": "dist/reveal.esm.js",
   "license": "MIT",
   "scripts": {
-    "test": "gulp test",
     "start": "gulp serve",
     "build": "gulp build"
-  },
-  "author": {
-    "name": "Hakim El Hattab",
-    "email": "hakim.elhattab@gmail.com",
-    "web": "https://hakim.se"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/hakimel/reveal.js.git"
   },
   "engines": {
     "node": ">=10.0.0"
   },
-  "keywords": [
-    "reveal",
-    "slides",
-    "presentation"
-  ],
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/eslint-parser": "^7.14.3",
